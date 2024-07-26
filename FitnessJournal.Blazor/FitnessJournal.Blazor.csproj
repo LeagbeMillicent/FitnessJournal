@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FitnessJournal.Application\FitnessJournal.Application.csproj" />
+    <ProjectReference Include="..\FitnessJournal.Domain\FitnessJournal.Domain.csproj" />
+    <ProjectReference Include="..\FitnessJournal.Infrastructure\FitnessJournal.Infrastructure.csproj" />
+    <ProjectReference Include="..\FitnessJournal\FitnessJournal.csproj" />
+  </ItemGroup>
+
+</Project>
