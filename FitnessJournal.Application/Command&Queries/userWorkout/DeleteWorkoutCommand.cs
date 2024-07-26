@@ -8,24 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitnessJournal.Application.Command_Queries.userProfile
+namespace FitnessJournal.Application.Command_Queries.userWorkout
 {
-    public class DeleteProfileCommand : IRequest<bool>
+    public class DeleteWorkoutCommand : IRequest<bool>
     {
         public int Id { get; set; }
     }
 
-    public class DeleteProfileCommandHandler : IRequestHandler<DeleteProfileCommand, bool>
+    public class DeleteWorkoutCommandHandler : IRequestHandler<DeleteWorkoutCommand, bool>
     {
-        private readonly IGenericRepository<UserProfile> _repository;
+        private readonly IGenericRepository<Workout> _repository;
         private readonly IMapper _mapper;
 
-        public DeleteProfileCommandHandler(IGenericRepository<UserProfile> repository, IMapper mapper)
+        public DeleteWorkoutCommandHandler(IGenericRepository<Workout> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
-        public async Task<bool> Handle(DeleteProfileCommand request, CancellationToken cancellationToken)
+        public async Task<bool> Handle(DeleteWorkoutCommand request, CancellationToken cancellationToken)
         {
             try
             {

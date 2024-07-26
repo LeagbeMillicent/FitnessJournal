@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitnessJournal.Infrastructure.Migrations
 {
     [DbContext(typeof(FitnessJournalContext))]
-    [Migration("20240723154649_Initial")]
-    partial class Initial
+    [Migration("20240726105311_Fitness")]
+    partial class Fitness
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -40,6 +40,9 @@ namespace FitnessJournal.Infrastructure.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -73,10 +76,6 @@ namespace FitnessJournal.Infrastructure.Migrations
                     b.Property<string>("FitnessLevel")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Goals")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("PreferredWorkoutTypes")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -84,6 +83,60 @@ namespace FitnessJournal.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FitnessInformations");
+                });
+
+            modelBuilder.Entity("FitnessJournal.Domain.Goal", b =>
+                {
+                    b.Property<int>("GoalId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("GoalId"));
+
+                    b.Property<int?>("FitnessInformationId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("GoalName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsAchieved")
+                        .HasColumnType("bit");
+
+                    b.HasKey("GoalId");
+
+                    b.HasIndex("FitnessInformationId");
+
+                    b.ToTable("Goals");
+                });
+
+            modelBuilder.Entity("FitnessJournal.Domain.Progress", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("ActivityTrackingId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Rmks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Weight")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("WorkoutStats")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ActivityTrackingId");
+
+                    b.ToTable("Progresses");
                 });
 
             modelBuilder.Entity("FitnessJournal.Domain.UserProfile", b =>
@@ -126,36 +179,6 @@ namespace FitnessJournal.Infrastructure.Migrations
                     b.ToTable("Profiles");
                 });
 
-            modelBuilder.Entity("FitnessJournal.Domain.Progress", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("ActivityTrackingId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Rmks")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Weight")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("WorkoutStats")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ActivityTrackingId");
-
-                    b.ToTable("Progresses");
-                });
-
             modelBuilder.Entity("FitnessJournal.Domain.Workout", b =>
                 {
                     b.Property<int>("Id")
@@ -167,11 +190,14 @@ namespace FitnessJournal.Infrastructure.Migrations
                     b.Property<int?>("ActivityTrackingId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime?>("Duration")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Duration")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("EndTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("GoalId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Intensity")
                         .HasColumnType("nvarchar(max)");
@@ -179,12 +205,17 @@ namespace FitnessJournal.Infrastructure.Migrations
                     b.Property<string>("Rmks")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.HasIndex("ActivityTrackingId");
+
+                    b.HasIndex("GoalId");
 
                     b.ToTable("Workouts");
                 });
@@ -194,6 +225,13 @@ namespace FitnessJournal.Infrastructure.Migrations
                     b.HasOne("FitnessJournal.Domain.ActivityTracking", null)
                         .WithMany("Achievements")
                         .HasForeignKey("ActivityTrackingId");
+                });
+
+            modelBuilder.Entity("FitnessJournal.Domain.Goal", b =>
+                {
+                    b.HasOne("FitnessJournal.Domain.FitnessInformation", null)
+                        .WithMany("Goals")
+                        .HasForeignKey("FitnessInformationId");
                 });
 
             modelBuilder.Entity("FitnessJournal.Domain.Progress", b =>
@@ -208,6 +246,10 @@ namespace FitnessJournal.Infrastructure.Migrations
                     b.HasOne("FitnessJournal.Domain.ActivityTracking", null)
                         .WithMany("Workouts")
                         .HasForeignKey("ActivityTrackingId");
+
+                    b.HasOne("FitnessJournal.Domain.Goal", null)
+                        .WithMany("Workout")
+                        .HasForeignKey("GoalId");
                 });
 
             modelBuilder.Entity("FitnessJournal.Domain.ActivityTracking", b =>
@@ -217,6 +259,16 @@ namespace FitnessJournal.Infrastructure.Migrations
                     b.Navigation("Progress");
 
                     b.Navigation("Workouts");
+                });
+
+            modelBuilder.Entity("FitnessJournal.Domain.FitnessInformation", b =>
+                {
+                    b.Navigation("Goals");
+                });
+
+            modelBuilder.Entity("FitnessJournal.Domain.Goal", b =>
+                {
+                    b.Navigation("Workout");
                 });
 #pragma warning restore 612, 618
         }

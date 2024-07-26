@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FitnessJournal.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace FitnessJournal.Application.Dto
     public class AddFitnessInfoDto
     {
         public string? FitnessLevel { get; set; }
-        public List<string> Goals { get; set; } = new List<string>();
+        public List<Goal> Goals { get; set; } = new List<Goal>();
         public List<string> PreferredWorkoutTypes { get; set; } = new List<string>();
     }
 

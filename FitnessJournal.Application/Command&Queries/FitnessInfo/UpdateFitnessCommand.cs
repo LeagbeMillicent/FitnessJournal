@@ -9,29 +9,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitnessJournal.Application.Command_Queries
+namespace FitnessJournal.Application.Command_Queries.FitnessInfo
 {
-    public class UpdateProfileCommand : IRequest<CommonResponse>
+    public class UpdateFitnessCommand : IRequest<CommonResponse>
     {
-        public UpdateProfileDto UpdateProfileDto { get; set; }
+        public UpdateFitnessInfoDto UpdateFitDto { get; set; }
     }
 
-    public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand, CommonResponse>
+    public class UpdateFitnessCommandHandler : IRequestHandler<UpdateFitnessCommand, CommonResponse>
     {
-        private readonly IGenericRepository<UserProfile> _repository;
+        private readonly IGenericRepository<FitnessInformation> _repository;
         private readonly IMapper _mapper;
 
-        public UpdateProfileCommandHandler(IGenericRepository<UserProfile> repository, IMapper mapper)
+        public UpdateFitnessCommandHandler(IGenericRepository<FitnessInformation> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
-        public async Task<CommonResponse> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
+        public async Task<CommonResponse> Handle(UpdateFitnessCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var dto = request.UpdateProfileDto;
-                var entity = _mapper.Map<UserProfile>(dto);
+                var dto = request.UpdateFitDto;
+                var entity = _mapper.Map<FitnessInformation>(dto);
 
                 var data = await _repository.GetByIdAsync(entity.Id) ?? throw new KeyNotFoundException($"Entity with Id {dto.Id} not found.");
 

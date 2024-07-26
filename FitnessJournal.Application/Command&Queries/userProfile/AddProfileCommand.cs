@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FitnessJournal.Application.Dto;
 using FitnessJournal.Application.Repository;
 using FitnessJournal.Domain;
 using MediatR;
@@ -10,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using static FitnessJournal.Application.Dto.ProfileDto;
 
-namespace FitnessJournal.Application.Command_Queries
+namespace FitnessJournal.Application.Command_Queries.userProfile
 {
     public class AddProfileCommand : IRequest<CommonResponse>
     {
@@ -41,8 +42,8 @@ namespace FitnessJournal.Application.Command_Queries
                     Age = dto.Age,
                     Gender = dto.Gender,
                     Height = dto.Height,
-                    Weight = dto.Height,
-                    CreatedDate = dto.CreatedDate,
+                    Weight = dto.Weight,
+                    CreatedDate = DateTime.Now,
                     LastUpdatedDate = dto.LastUpdatedDate
                 };
 
@@ -55,13 +56,13 @@ namespace FitnessJournal.Application.Command_Queries
                 };
 
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 return new CommonResponse
                 {
                     Id = 0,
                     Success = false,
-                    Message = ex.Message
+                    Message = "Failed to Save."
 
                 };
             }

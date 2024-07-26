@@ -17,6 +17,7 @@ namespace FitnessJournal.Infrastructure.Data
         public virtual DbSet<UserProfile> Profiles { get; set; }
         public virtual DbSet<Progress> Progresses { get; set; }
         public virtual DbSet<Workout> Workouts { get; set; }
+        public virtual DbSet<Goal> Goals { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,6 +29,7 @@ namespace FitnessJournal.Infrastructure.Data
             modelBuilder.Entity<UserProfile>().HasKey(p => p.Id);
             modelBuilder.Entity<Progress>().HasKey(p => p.Id);
             modelBuilder.Entity<Workout>().HasKey(w => w.Id);
+            modelBuilder.Entity<Goal>().HasKey(g => g.GoalId);
 
 
             

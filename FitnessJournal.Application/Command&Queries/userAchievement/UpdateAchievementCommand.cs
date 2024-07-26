@@ -9,29 +9,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FitnessJournal.Application.Command_Queries
+namespace FitnessJournal.Application.Command_Queries.userAchievement
 {
-    public class UpdateProfileCommand : IRequest<CommonResponse>
+    public class UpdateAchievementCommand : IRequest<CommonResponse>
     {
-        public UpdateProfileDto UpdateProfileDto { get; set; }
+        public UpdateAchievementDto UpdatDto { get; set; }
     }
 
-    public class UpdateProfileCommandHandler : IRequestHandler<UpdateProfileCommand, CommonResponse>
+    public class UpdateAchievementCommandHandler : IRequestHandler<UpdateAchievementCommand, CommonResponse>
     {
-        private readonly IGenericRepository<UserProfile> _repository;
+        private readonly IGenericRepository<Achievement> _repository;
         private readonly IMapper _mapper;
 
-        public UpdateProfileCommandHandler(IGenericRepository<UserProfile> repository, IMapper mapper)
+        public UpdateAchievementCommandHandler(IGenericRepository<Achievement> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
-        public async Task<CommonResponse> Handle(UpdateProfileCommand request, CancellationToken cancellationToken)
+        public async Task<CommonResponse> Handle(UpdateAchievementCommand request, CancellationToken cancellationToken)
         {
             try
             {
-                var dto = request.UpdateProfileDto;
-                var entity = _mapper.Map<UserProfile>(dto);
+                var dto = request.UpdatDto;
+                var entity = _mapper.Map<Achievement>(dto);
 
                 var data = await _repository.GetByIdAsync(entity.Id) ?? throw new KeyNotFoundException($"Entity with Id {dto.Id} not found.");
 

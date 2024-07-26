@@ -11,22 +11,23 @@ using System.Threading.Tasks;
 
 namespace FitnessJournal.Application.Command_Queries.userProfile
 {
-    public class GetAllProfileCommand : IRequest<IReadOnlyList<ProfileDto>>
+    public class ProfileCommandGetAll : IRequest<IReadOnlyList<ProfileDto>>
     {
+
     }
 
-    public class GetAllProfileCommandHandlerHandler : IRequestHandler<GetAllProfileCommand, IReadOnlyList<ProfileDto>>
+    public class ProfileCommandGetAllHandler : IRequestHandler<ProfileCommandGetAll, IReadOnlyList<ProfileDto>>
     {
         private readonly IGenericRepository<UserProfile> _repository;
         private readonly IMapper _mapper;
 
-        public GetAllProfileCommandHandlerHandler(IGenericRepository<UserProfile> repository, IMapper mapper)
+        public ProfileCommandGetAllHandler(IGenericRepository<UserProfile> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public async Task<IReadOnlyList<ProfileDto>> Handle(GetAllProfileCommand request, CancellationToken cancellationToken)
+        public async Task<IReadOnlyList<ProfileDto>> Handle(ProfileCommandGetAll request, CancellationToken cancellationToken)
         {
             var data = await _repository.GetAllAsync();
             return _mapper.Map<List<ProfileDto>>(data);

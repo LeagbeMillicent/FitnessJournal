@@ -10,7 +10,7 @@ namespace FitnessJournal.Domain
     {
         public int Id { get; set; }
         public string? FitnessLevel { get; set; }
-        public List<string> Goals { get; set; } = new List<string>();
+        public List<Goal> Goals { get; set; } = new List<Goal>();
         public List<string> PreferredWorkoutTypes { get; set; } = new List<string>();
     }
 }
