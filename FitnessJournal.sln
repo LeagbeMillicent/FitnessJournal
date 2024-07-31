@@ -11,9 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitnessJournal.Application"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FitnessJournal.Infrastructure", "FitnessJournal.Infrastructure\FitnessJournal.Infrastructure.csproj", "{24DA30E6-C002-4ECC-8894-5C1B8230AF54}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitness.Blazor", "Fitness.Blazor\Fitness.Blazor\Fitness.Blazor.csproj", "{692C4A3F-7D58-4C55-B4E5-99267354E6EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fitness.Blazor", "Fitness.Blazor\Fitness.Blazor\Fitness.Blazor.csproj", "{692C4A3F-7D58-4C55-B4E5-99267354E6EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fitness.Blazor.Client", "Fitness.Blazor\Fitness.Blazor.Client\Fitness.Blazor.Client.csproj", "{4C8B5E91-4DAC-4DD1-BF3D-C4A165944AB9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fitness.Blazor.Client", "Fitness.Blazor\Fitness.Blazor.Client\Fitness.Blazor.Client.csproj", "{4C8B5E91-4DAC-4DD1-BF3D-C4A165944AB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

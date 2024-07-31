@@ -9,7 +9,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Pages\Workout.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Pages\Workout.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Pages\Workout.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Workout.razor" />
   </ItemGroup>
 
 </Project>

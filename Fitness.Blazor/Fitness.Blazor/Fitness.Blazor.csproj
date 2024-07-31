@@ -7,11 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\Pages\FitnessTracking.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\FitnessJournal.Application\FitnessJournal.Application.csproj" />
     <ProjectReference Include="..\..\FitnessJournal.Domain\FitnessJournal.Domain.csproj" />
     <ProjectReference Include="..\..\FitnessJournal\FitnessJournal.csproj" />
     <ProjectReference Include="..\Fitness.Blazor.Client\Fitness.Blazor.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <UpToDateCheckInput Remove="Components\Pages\FitnessTracking.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="Components\Pages\FitnessTracking.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Components\Pages\FitnessTracking.razor" />
   </ItemGroup>
 
 </Project>
