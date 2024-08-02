@@ -1,10 +1,30 @@
 ﻿@page "/workout"
+@inject IWorkoutService WorkoutService
+
 @rendermode InteractiveWebAssembly
 
 <PageTitle>Workout</PageTitle>
 
 <h3>Workout</h3>
 
+@if (workouts == null){
+    <p><em>Loading...</em></p>
+}
+else{
+    <ul>
+        @foreach (var workout in workouts){
+            <li>
+                @workout.Name - @workout.Duration minutes
+            </li>
+        }
+    </ul>
+}
+
 @code {
+    private IEnumerable<WorkoutDto> workouts;
+
+    protected override async Task OnInitializedAsync(){
+        workouts = await WorkoutService.GetWorkoutAsync();
+    }
 
 }

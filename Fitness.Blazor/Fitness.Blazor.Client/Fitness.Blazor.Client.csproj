@@ -28,4 +28,9 @@
     <None Include="Pages\Workout.razor" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\FitnessJournal.Application\FitnessJournal.Application.csproj" />
+    <ProjectReference Include="..\..\FitnessJournal.Domain\FitnessJournal.Domain.csproj" />
+  </ItemGroup>
+
 </Project>

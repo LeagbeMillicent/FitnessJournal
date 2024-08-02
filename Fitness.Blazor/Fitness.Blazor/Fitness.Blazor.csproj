@@ -13,8 +13,10 @@
   <ItemGroup>
     <ProjectReference Include="..\..\FitnessJournal.Application\FitnessJournal.Application.csproj" />
     <ProjectReference Include="..\..\FitnessJournal.Domain\FitnessJournal.Domain.csproj" />
+    <ProjectReference Include="..\..\FitnessJournal.Infrastructure\FitnessJournal.Infrastructure.csproj" />
     <ProjectReference Include="..\..\FitnessJournal\FitnessJournal.csproj" />
     <ProjectReference Include="..\Fitness.Blazor.Client\Fitness.Blazor.Client.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="8.0.7" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.7" />
   </ItemGroup>
 
