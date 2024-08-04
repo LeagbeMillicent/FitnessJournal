@@ -1,0 +1,39 @@
+﻿@page "/signUp"
+<PageTitle>Sign Up</PageTitle>
+
+<h3>SignUp</h3>
+
+<main class="container" style="padding:30px;background-color:black;opacity:60%;">
+    <div style="padding:2%; align-items: center; justify-items: center;">
+        <h1 style="color: white; text-align:center;font-weight:bold;">Be<span style="color:cornflowerblue">Fit</span></h1>
+        <p style="color: white; margin-bottom:2%;text-align:center;font-weight:bold;">Create an account</p>
+        <form method="post" style="display:grid;padding:5px;justify-items:center;">
+            <div style="padding: 2%; width: 50%;">
+                <p style="color: white;">Enter your email*</p>
+                <input type="email" name="Email" placeholder="example@gmail.com"
+                       style="width:100%;padding: 5px; border-radius: 5px;opacity:20%;" />
+            </div>
+            <div style="padding: 2%; width: 50%;">
+                <p style="color: white;">Create Password*</p>
+                <input type="password" name="createPassword"
+                       style="width:100%; padding: 5px; border-radius: 5px;opacity:20%;" />
+            </div>
+            <div style="padding: 2%; width: 50%;">
+                <p style="color: white;">Repeat Password*</p>
+                <input type="password" name="repeatPassword" style="width:100%;padding: 5px; border-radius: 5px;opacity:20%;" />
+            </div>
+            <button style="margin-bottom:5%;font-weight:bold;width:46%;background-color:aqua;padding-top:1%;padding-bottom:1%;padding-left:5%;padding-right:5%;border-radius:15px;">
+                Sign
+                Up
+            </button>
+            <p style="color:white">Already have an account? <span style="color:cornflowerblue;" href="/">Log in</span></p>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</main>
+
+@code {
+
+}
