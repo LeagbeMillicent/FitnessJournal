@@ -1,0 +1,64 @@
+﻿@page "/blog"
+<PageTitle>Blogs</PageTitle>
+<h3>Blogs</h3>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Fitness and Wellness Blogs</h1>
+    <div class="row">
+        @foreach (var blog in PageBlogs)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <img src="@blog.ImageUrl" class="card-img-top" alt="@blog.Title">
+                    <div class="card-body">
+                        <h5 class="card-title">@blog.Title</h5>
+                        <p class="card-text">@blog.Description</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <button class="btn btn-success">Read More</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@code {
+    public class Blog
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string ImageUrl { get; set; }
+    }
+
+    public List<Blog> PageBlogs { get; set; }
+
+    protected override void OnInitialized()
+    {
+        PageBlogs = new List<Blog>
+        {
+            new Blog
+            {
+                Title = "The Importance of Fitness",
+                Description = "Fitness is crucial for maintaining a healthy lifestyle. Regular exercise can help prevent chronic diseases and improve mental health.",
+                ImageUrl = "images/fitness1.jpg"
+            },
+            new Blog
+            {
+                Title = "Eating Well for Optimal Health",
+                Description = "A balanced diet is essential for overall well-being. Learn about the best foods to include in your diet for better health.",
+                ImageUrl = "images/eating_well.jpg"
+            },
+            new Blog
+            {
+                Title = "Top 10 Fitness Tips",
+                Description = "Get the top 10 fitness tips to help you stay motivated and achieve your fitness goals.",
+                ImageUrl = "images/fitness_tips.jpg"
+            }
+        };
+    }
+}
+
+@code {
+
+}

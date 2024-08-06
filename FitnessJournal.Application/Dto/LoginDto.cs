@@ -19,10 +19,18 @@ namespace FitnessJournal.Application.Dto
         [Required(ErrorMessage = "Email is required.")]
         [EmailAddress(ErrorMessage = "Invalid email address format.")]
         public string? Email { get; set; }
+        [Required(ErrorMessage="Password is required")]
+        [DataType(DataType.Password)]
+        [MaxLength(8,ErrorMessage="Password should be 8 characters long")]
         public string? Password { get; set; }
+        [Required(ErrorMessage = "Confirmation Password is required")]
+        [Compare ("Password", ErrorMessage ="Password does not match")]
+        [DataType (DataType.Password)]
+
+        public string? ConfirmPassword { get; set; }
     }
 
-    public class UserDto
+    public class userProfile
     {
         public string? Name { get; set; }
         public string? Email { get; set; }

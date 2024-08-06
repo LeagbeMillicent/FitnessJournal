@@ -1,0 +1,30 @@
+﻿@page "/login"
+
+<PageTitle>Login</PageTitle>
+<h3>Login</h3>
+
+<main style="
+        padding: 2%;
+        align-items: center;
+        justify-items: center;
+        width: 100vw;
+        height: 100vh;
+      ">
+    <div style="text-align: center">
+        <h4 style="font-size:40px;">Welcome Back!</h4>
+        <p style="font-size:30px;">Enter Your Credentials To Continue</p>
+    </div>
+    <form method="post" style="margin-top:15%;margin-bottom:5%;display:grid;display:grid;justify-items: center;">
+        <input type="email" placeholder="Your Email" style="width:30%;margin-bottom:2%; border-left:none;border-right:none;border-top:none; padding:1%;opacity:25%;" />
+        <input type="password" style="width:30%;margin-bottom:2%;border-left:none;border-right:none;border-top:none;padding:1%;opacity:25%;color: black;" placeholder="Password" />
+        <div style="margin-bottom:2%; display: flex; justify-content: space-between; width:30%;padding:2px;">
+            <input type="radio" />
+            <span clas>Forgot Password?</span>
+        </div>
+        <button style="padding:1%;width:30%;border-radius:15px;background-color: rgb(194, 94, 111);color: white; font-weight: bold;">Login</button>
+    </form>
+</main>
+
+@code {
+
+}

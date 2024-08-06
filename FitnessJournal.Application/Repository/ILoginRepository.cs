@@ -11,6 +11,6 @@ namespace FitnessJournal.Application.Repository
 {
     public interface ILoginRepository 
     {
-        Task<UserProfile> GetUserDetails (string username, string password);
+        Task<UserProfile> GetUserDetails (string email, string password);
     }
 }

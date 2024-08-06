@@ -19,9 +19,9 @@ namespace FitnessJournal.Infrastructure.Repository
         {
             _context = fitnessContext;
         }
-        public async Task<UserProfile> GetUserDetails(string? username, string? password)
+        public async Task<UserProfile> GetUserDetails(string? email, string? password)
         {
-            return await _context.Profiles.Where(x => x.Name == username && x.Password == password).FirstOrDefaultAsync();
+            return await _context.Profiles.Where(x => x.Email == email && x.Password == password).FirstOrDefaultAsync();
         }
     }
 }

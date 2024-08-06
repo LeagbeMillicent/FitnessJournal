@@ -14,6 +14,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddApplicationServices();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(FitnessRepository<>));
+builder.Services.AddScoped(typeof(ILoginRepository), typeof(LoginRepository));
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

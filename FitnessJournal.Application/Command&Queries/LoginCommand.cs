@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace FitnessJournal.Application.Command_Queries
 {
-    public class LoginCommand : IRequest<UserDto>
+    public class LoginCommand : IRequest<Dto.userProfile>
     {
         public LoginDto LoginDto { get; set; }
     }
 
-    public class LoginCommandHandler : IRequestHandler<LoginCommand, UserDto>
+    public class LoginCommandHandler : IRequestHandler<LoginCommand, Dto.userProfile>
     {
         private ILoginRepository _loginRepository;
         private IMapper _mapper;
@@ -27,17 +27,17 @@ namespace FitnessJournal.Application.Command_Queries
             _mapper = mapper;
         }
 
-        public async Task<UserDto> Handle(LoginCommand request, CancellationToken cancellationToken)
+        public async Task<Dto.userProfile> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             try
             {
                 var response = await _loginRepository.GetUserDetails(request.LoginDto.Email, request.LoginDto.Password);
                 if (response == null)
                 {
-                    return new UserDto();
+                    return new Dto.userProfile();
                 }
 
-                var result = _mapper.Map<UserDto>(response);
+                var result = _mapper.Map<Dto.userProfile>(response);
                 return result;
             }
             catch (Exception )

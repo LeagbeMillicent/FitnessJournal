@@ -1,0 +1,54 @@
+﻿@page "/timer"
+<PageTitle>Timer</PageTitle>
+
+<h3>Timer</h3>
+
+<p>Time : @timeSpan.ToString(@"hh\:mm\:ss")</p>
+
+<button class="btn btn-primary" @onclick="StartStopwatch">Start</button>
+<button class="btn btn-secondary ms-2" @onclick="StopStopwatch">Stop</button>
+<button class="btn btn-danger ms-2" @onclick="ResetStopwatch">Reset</button>
+
+@code {
+    private TimeSpan timeSpan;
+    private bool isRunning = false;
+    private DateTime startTime;
+    private System.Timers.Timer timer;
+
+    private void StartStopwatch()
+    {
+        if (!isRunning)
+        {
+            startTime = DateTime.Now - timeSpan; // To continue from where it left off
+            timer = new System.Timers.Timer(1000); // Initialize timer with callback and interval
+            isRunning = true;
+        }
+    }
+
+    private void StopStopwatch()
+    {
+        if (isRunning)
+        {
+            timer?.Dispose();
+            isRunning = false;
+        }
+    }
+
+    private void ResetStopwatch()
+    {
+        StopStopwatch();
+        timeSpan = TimeSpan.Zero;
+        StateHasChanged();
+    }
+
+    private void UpdateTime(object state)
+    {
+        timeSpan = DateTime.Now - startTime;
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        timer?.Dispose();
+    }
+}

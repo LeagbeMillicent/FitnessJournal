@@ -16,6 +16,8 @@ namespace FitnessJournal.Application.Mappers
             CreateMap<AddProfileDto, UserProfile>().ReverseMap();
             CreateMap<UpdateProfileDto, UserProfile>().ReverseMap();
             CreateMap<ProfileDto, UserProfile>().ReverseMap();
+            CreateMap<userProfile, UserProfile>().ReverseMap();
+            CreateMap<RegisterDto, UserProfile>().ReverseMap();
         }
     }
 }
