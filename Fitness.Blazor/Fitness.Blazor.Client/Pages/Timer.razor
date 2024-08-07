@@ -4,10 +4,26 @@
 <h3>Timer</h3>
 
 <p>Time : @timeSpan.ToString(@"hh\:mm\:ss")</p>
-
-<button class="btn btn-primary" @onclick="StartStopwatch">Start</button>
+<div id="time">0</div>
+<button id="increase" class="btn btn-primary" @onclick="StartStopwatch">Start</button>
 <button class="btn btn-secondary ms-2" @onclick="StopStopwatch">Stop</button>
 <button class="btn btn-danger ms-2" @onclick="ResetStopwatch">Reset</button>
+<script>
+    const incrementButton = document.getElementById('increase');
+    const counterElement = document.getElementById('time');
+
+    // Add an event listener to the button
+    incrementButton.addEventListener('click', function () {
+        // Read the current value from the counter element
+        let currentValue = parseInt(counterElement.textContent);
+
+        // Increment the value
+        currentValue++;
+
+        // Update the counter element with the new value
+        counterElement.textContent = currentValue;
+    });
+</script>
 
 @code {
     private TimeSpan timeSpan;
