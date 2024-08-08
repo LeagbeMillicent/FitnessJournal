@@ -3,6 +3,7 @@ using FitnessJournal.Application.Dto;
 using FitnessJournal.Application.Repository;
 using FitnessJournal.Domain;
 using MediatR;
+using System.Text;
 
 namespace FitnessJournal.Application.Command_Queries.userWorkout
 {
@@ -26,13 +27,17 @@ namespace FitnessJournal.Application.Command_Queries.userWorkout
         {
             try
             {
+                
                 var dto = request.AddWorkDto;
+
+               
                 var newData = new Workout
                 {
                     
-                    Type = dto.Type,
+                    Name = dto.Name,
                     Duration = dto.Duration,
                     Intensity = dto.Intensity,
+                    Image = dto.Image,
                     StartTime = DateTime.Now.AddMinutes(-60),
                     EndTime = DateTime.Now,
                     Rmks = dto.Rmks

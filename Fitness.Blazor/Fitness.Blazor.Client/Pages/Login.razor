@@ -1,6 +1,10 @@
 ﻿@page "/login"
 @using Fitness.Blazor.Client.Services
 @using FitnessJournal.Application.Dto
+
+@inject HttpClient httpClient
+@* @inject IUriHelper uriHelper
+ *@
 @inject ILoginService _loginService;
 
 <PageTitle>Login</PageTitle>
@@ -17,7 +21,7 @@
         <h4 style="font-size:40px;">Welcome Back!</h4>
         <p style="font-size:30px;">Enter Your Credentials To Continue</p>
     </div>
-    <EditForm Model="loginDto"  style="margin-top:15%;margin-bottom:5%;display:grid;display:grid;justify-items: center;">
+    @* <EditForm Model="loginDto"  style="margin-top:15%;margin-bottom:5%;display:grid;display:grid;justify-items: center;">
         <InputText id="email" @bind-Value="loginDto.Email" type="email" placeholder="Your Email" style="width:30%;margin-bottom:2%; border-left:none;border-right:none;border-top:none; padding:1%;opacity:25%;" />
         <InputText id="password" @bind-Value="loginDto.Password" type="password" style="width:30%;margin-bottom:2%;border-left:none;border-right:none;border-top:none;padding:1%;opacity:25%;color: black;" placeholder="Password" />
         <div style="margin-bottom:2%; display: flex; justify-content: space-between; width:30%;padding:2px;">
@@ -30,24 +34,63 @@
     @if (message != null)
     {
         <p>@message</p>
-    }
+    } *@
+
 </main>
+    <div class="card" >
+
+        <div class="card-body">
+            <h5 class="card-title">Add New User</h5>
+            <div class="form-group row">
+                <label for="name" class="col-sm-4 col-form-label">Email</label>
+                <div class="col-sm-8">
+                <input bind="@login.Email" type="text" class="form-control" id="email" placeholder="email" />
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="password" class="col-sm-4 col-form-label">Password</label>
+            <div class="col-sm-8">
+                <input type="password" class="form-control" id="email" placeholder="Password" bind="@login.Password" />
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-8">
+                <button onclick=@SaveNewUser type="button" class="btn btn-primary">
+                    Save
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
 
 @code {
-    private LoginDto loginDto = new LoginDto();
-    private string message;
-    private async Task HandleLogin()
+    // private LoginDto loginDto = new LoginDto();
+    // private string message;
+    // private async Task HandleLogin()
+    // {
+    //     var result = await _loginService.CreateLoginAsync(loginDto);
+    //     if (result != null)
+    //     {
+    //         message = "Successfully logged in";
+    //         loginDto = new LoginDto();
+    //     }
+    //     else
+    //     {
+    //         message = "Email or password is incorrect!";
+    //         loginDto = new LoginDto();
+    //     }
+    // }
+
+
+    private LoginDto login { get; set; } = new LoginDto();
+
+    private async Task SaveNewUser()
     {
-        var result = await _loginService.CreateLoginAsync(loginDto);
-        if (result != null)
-        {
-            message = "Successfully logged in";
-            loginDto = new LoginDto();
-        }
-        else
-        {
-            message = "Email or password is incorrect!";
-            loginDto = new LoginDto();
-        }
+        await httpClient.PostAsJsonAsync("api/Login/Login", login);
     }
 }

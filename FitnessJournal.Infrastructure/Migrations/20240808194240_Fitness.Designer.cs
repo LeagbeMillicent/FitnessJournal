@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitnessJournal.Infrastructure.Migrations
 {
     [DbContext(typeof(FitnessJournalContext))]
-    [Migration("20240806111528_Initial")]
-    partial class Initial
+    [Migration("20240808194240_Fitness")]
+    partial class Fitness
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -199,7 +199,13 @@ namespace FitnessJournal.Infrastructure.Migrations
                     b.Property<int?>("GoalId")
                         .HasColumnType("int");
 
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("Intensity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Rmks")
@@ -207,9 +213,6 @@ namespace FitnessJournal.Infrastructure.Migrations
 
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Type")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

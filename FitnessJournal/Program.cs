@@ -11,6 +11,7 @@ builder.Services.AddDbContext<FitnessJournalContext>(options =>
 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 builder.Services.AddControllers();
+builder.Services.AddHttpClient();
 
 builder.Services.AddApplicationServices();
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(FitnessRepository<>));
