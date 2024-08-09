@@ -5,6 +5,7 @@ using FitnessJournal.Application.Dto;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Mime;
 
 namespace FitnessJournal.Controllers
 {
@@ -19,9 +20,23 @@ namespace FitnessJournal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddWorkOut([FromBody] AddWorkoutDto dto)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> AddWorkOut([FromForm] AddWorkoutDto dto, IFormFile? image)
         {
-            var command = new AddWorkoutCommand { AddWorkDto = dto };
+            byte[]? imageBytes = null;
+
+            if (image != null && image.Length > 0)
+            {
+                using (var ms = new MemoryStream())
+                {
+                    await image.CopyToAsync(ms);
+                    imageBytes = ms.ToArray();
+                }
+            }
+
+            var command = new AddWorkoutCommand { AddWorkDto = dto ,
+                Image = imageBytes
+            };
             var response = await _medator.Send(command);
             if (response.Success)
             {
