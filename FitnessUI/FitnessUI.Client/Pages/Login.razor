@@ -1,0 +1,79 @@
+﻿@page "/login"
+@using Fitness.Blazor.Client.Services
+@using System.ComponentModel.DataAnnotations
+@using FitnessJournal.Application.Dto
+
+@inject HttpClient _httpClient;
+
+@* @inject LoginService _loginService;
+ *@
+<PageTitle>Login</PageTitle>
+<h3>Login</h3>
+
+<main style="
+        padding: 2%;
+        align-items: center;
+        justify-items: center;
+        width: 100vw;
+        height: 100vh;
+      ">
+    <div style="text-align: center">
+        <h4 style="font-size:40px;">Welcome Back!</h4>
+        <p style="font-size:30px;">Enter Your Credentials To Continue</p>
+    </div>
+    <EditForm Model="loginDto" OnValidSubmit="HandleLogin" FormName="loginForm" style="margin-top:15%;margin-bottom:5%;display:grid;display:grid;justify-items: center;">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+        <InputText id="email" @bind-Value="this.loginDto.Email" type="email" placeholder="Your Email" style="width:30%;margin-bottom:2%; border-left:none;border-right:none;border-top:none; padding:1%;opacity:25%;" />
+        <InputText id="password" @bind-Value="this.loginDto.Password" type="password" style="width:30%;margin-bottom:2%;border-left:none;border-right:none;border-top:none;padding:1%;opacity:25%;color: black;" placeholder="Password" />
+        <div style="margin-bottom:2%; display: flex; justify-content: space-between; width:30%;padding:2px;">
+            <input type="radio" />
+            <span clas>Forgot Password?</span>
+        </div>
+        <button type="submit" style="padding:1%;width:30%;border-radius:15px;background-color: rgb(194, 94, 111);color: white; font-weight: bold;">Login</button>
+    </EditForm>
+
+    @if (message != null)
+    {
+        <p>@message</p>
+    } 
+
+</main>
+    
+
+
+
+
+@code {
+    private string email = string.Empty;
+    private string passcode = string.Empty;
+    private LoginDto loginDto = new LoginDto();
+  
+    private string message;
+    private async Task HandleLogin()
+    {
+        //var result = await _loginService.CreateLoginAsync(loginDto);
+
+        var result = await _httpClient.PostAsJsonAsync<LoginDto>($"api/Login/Login", loginDto);
+        if (result != null)
+        {
+            message = "Successfully logged in";
+            loginDto = new LoginDto();
+        }
+        else
+        {
+            message = "Email or password is incorrect!";
+            loginDto = new LoginDto();
+        }
+    }
+
+    // public class LoginDto
+    // {
+    //     [Required(ErrorMessage = "Email is required.")]
+    //     [EmailAddress(ErrorMessage = "Invalid email address format.")]
+    //     public string? Email { get; set; }
+    //     public string? Password { get; set; }
+    // }
+
+}

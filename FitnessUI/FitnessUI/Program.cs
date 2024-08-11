@@ -1,13 +1,12 @@
-using Fitness.Blazor.Client.Pages;
-using Fitness.Blazor.Components;
+using FitnessUI.Client.Pages;
+using FitnessUI.Components;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveWebAssemblyComponents();
-builder.Services.AddHttpClient();
-//builder.Services.AddScoped<ILoginService, LoginService>();
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7289/") });
 
 
 var app = builder.Build();
@@ -31,6 +30,6 @@ app.UseAntiforgery();
 
 app.MapRazorComponents<App>()
     .AddInteractiveWebAssemblyRenderMode()
-    .AddAdditionalAssemblies(typeof(Fitness.Blazor.Client._Imports).Assembly);
+    .AddAdditionalAssemblies(typeof(Counter).Assembly);
 
 app.Run();

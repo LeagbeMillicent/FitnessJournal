@@ -1,9 +1,10 @@
 ﻿using FitnessJournal.Application.Dto;
 using System.Net.Http.Json;
+using static FitnessUI.Client.Pages.Login;
 
 namespace Fitness.Blazor.Client.Services
 {
-    public class LoginService : ILoginService
+    public class LoginService 
     {
         private readonly HttpClient _httpClient;
 

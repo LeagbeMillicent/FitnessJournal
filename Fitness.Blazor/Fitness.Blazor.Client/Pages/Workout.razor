@@ -1,6 +1,6 @@
-﻿@page "/workout"
+﻿@* @* @page "/workout"
 @using FitnessJournal.Application.Dto
-@inject IWorkoutService WorkoutService
+@*@inject IWorkoutService WorkoutService
 
 @rendermode InteractiveWebAssembly
 
@@ -8,24 +8,15 @@
 
 <h3>Workout</h3>
 
-@if (workouts == null){
-    <p><em>Loading...</em></p>
-}
-else{
-    <ul>
-        @foreach (var workout in workouts){
-            <li>
-                @workout.Name - @workout.Duration minutes
-            </li>
-        }
-    </ul>
-}
 
-@code {
+
+
+@*@code {
     private IEnumerable<WorkoutDto> workouts;
 
     protected override async Task OnInitializedAsync(){
         workouts = await WorkoutService.GetWorkoutAsync();
     }
 
-}
+}*@
+ 

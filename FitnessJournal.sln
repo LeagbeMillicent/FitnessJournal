@@ -15,6 +15,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fitness.Blazor", "Fitness.B
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fitness.Blazor.Client", "Fitness.Blazor\Fitness.Blazor.Client\Fitness.Blazor.Client.csproj", "{4C8B5E91-4DAC-4DD1-BF3D-C4A165944AB9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessUI", "FitnessUI\FitnessUI\FitnessUI.csproj", "{D733D9CA-7F35-4A6D-A04B-D56FE45D2FEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FitnessUI.Client", "FitnessUI\FitnessUI.Client\FitnessUI.Client.csproj", "{CEF466ED-47AF-483E-9D9C-4B80B8149695}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +49,14 @@ Global
 		{4C8B5E91-4DAC-4DD1-BF3D-C4A165944AB9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C8B5E91-4DAC-4DD1-BF3D-C4A165944AB9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C8B5E91-4DAC-4DD1-BF3D-C4A165944AB9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D733D9CA-7F35-4A6D-A04B-D56FE45D2FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D733D9CA-7F35-4A6D-A04B-D56FE45D2FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D733D9CA-7F35-4A6D-A04B-D56FE45D2FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D733D9CA-7F35-4A6D-A04B-D56FE45D2FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEF466ED-47AF-483E-9D9C-4B80B8149695}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEF466ED-47AF-483E-9D9C-4B80B8149695}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEF466ED-47AF-483E-9D9C-4B80B8149695}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEF466ED-47AF-483E-9D9C-4B80B8149695}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
