@@ -1,5 +1,5 @@
 ﻿using FitnessJournal.Application.Dto;
-namespace Fitness.Blazor.Client.Services
+namespace FitnessUI.Client.Services
 {
     public interface IWorkoutService
     {

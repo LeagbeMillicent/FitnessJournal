@@ -7,6 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Components\Pages\FitnessTracking.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Components\Pages\FitnessTracking.razor" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FitnessUI.Client\FitnessUI.Client.csproj" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.0" />
   </ItemGroup>

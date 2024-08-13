@@ -2,13 +2,13 @@
 using FitnessJournal.Domain;
 using System.Net.Http.Json;
 
-namespace Fitness.Blazor.Client.Services
+namespace FitnessUI.Client.Services
 {
     public class WorkService : IWorkoutService
     {
         private readonly HttpClient _httpClient;
 
-        public WorkService(HttpClient httpClient) 
+        public WorkService(HttpClient httpClient)
         {
             _httpClient = httpClient;
         }

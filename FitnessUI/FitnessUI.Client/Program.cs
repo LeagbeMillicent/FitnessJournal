@@ -1,4 +1,4 @@
-using Fitness.Blazor.Client.Services;
+using FitnessUI.Client.Services;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);

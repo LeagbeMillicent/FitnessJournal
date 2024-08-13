@@ -2,9 +2,9 @@
 using System.Net.Http.Json;
 using static FitnessUI.Client.Pages.Login;
 
-namespace Fitness.Blazor.Client.Services
+namespace FitnessUI.Client.Services
 {
-    public class LoginService 
+    public class LoginService
     {
         private readonly HttpClient _httpClient;
 
