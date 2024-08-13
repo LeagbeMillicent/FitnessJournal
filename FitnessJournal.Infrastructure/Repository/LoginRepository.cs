@@ -1,14 +1,9 @@
-﻿using AutoMapper;
-using FitnessJournal.Application.Dto;
+﻿
 using FitnessJournal.Application.Repository;
 using FitnessJournal.Domain;
 using FitnessJournal.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace FitnessJournal.Infrastructure.Repository
 {
