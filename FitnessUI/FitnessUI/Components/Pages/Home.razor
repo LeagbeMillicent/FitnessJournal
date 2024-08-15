@@ -2,9 +2,9 @@
 
 <PageTitle>Home</PageTitle>
 @*Main Body*@
-<div class="bg-success text-white min">
-    @* First Section *@
-    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+@* <div class="bg-success text-white min"> *@
+@* First Section *@
+@*<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -34,9 +34,9 @@
         <NavLink class="nav-link" href="signUp">
             <span aria-hidden="true"></span> Sign UP
         </NavLink>
-    </button>
-    @* second section *@
-    <div class="container mt-5">
+    </button>*@
+@* second section *@
+@*<div class="container mt-5">
         <div class="row">
             <div class="col-md-4 mb-4" v-for="workout in workouts">
                 <div class="card">
@@ -63,36 +63,36 @@
                 </div>
             </div>
         </div>
-    </div>
-    <button type="button" class="btn btn-welcome">
-        <NavLink class="nav-link" href="welcome">
-            <span aria-hidden="true"></span> Welcome
-        </NavLink>
-    </button>
-    <button type="button" class="btn btn-sign-up">
-        <NavLink class="nav-link" href="fitnessProfile">
-            <span aria-hidden="true"></span> Fitness Profile
-        </NavLink>
-    </button>
-    <button type="button" class="btn btn-sign-up">
-        <NavLink class="nav-link" href="login">
-            <span aria-hidden="true"></span> Login
-        </NavLink>
-    </button>
-    <button type="button" class="btn btn-sign-up">
-        <NavLink class="nav-link" href="blog">
-            <span aria-hidden="true"></span> Blog
-        </NavLink>
-    </button>
-    <button type="button" class="btn btn-sign-up">
-        <NavLink href="timer" class="nav-link">
-            <span class="oi oi-clock" aria-hidden="true"></span> Digital Clock
-        </NavLink>
-    </button>
+    </div>*@
+<button type="button" class="btn btn-welcome">
+    <NavLink class="nav-link" href="welcome">
+        <span aria-hidden="true"></span> Welcome
+    </NavLink>
+</button>
+<button type="button" class="btn btn-sign-up">
+    <NavLink class="nav-link" href="fitnessProfile">
+        <span aria-hidden="true"></span> Fitness Profile
+    </NavLink>
+</button>
+<button type="button" class="btn btn-sign-up">
+    <NavLink class="nav-link" href="login">
+        <span aria-hidden="true"></span> Login
+    </NavLink>
+</button>
+<button type="button" class="btn btn-sign-up">
+    <NavLink class="nav-link" href="blog">
+        <span aria-hidden="true"></span> Blog
+    </NavLink>
+</button>
+<button type="button" class="btn btn-sign-up">
+    <NavLink href="timer" class="nav-link">
+        <span class="oi oi-clock" aria-hidden="true"></span> Digital Clock
+    </NavLink>
+</button>
 
 
 
-</div>
+
 
 
 <button type="button" class="btn btn-sign-up">
@@ -105,3 +105,198 @@
         <span aria-hidden="true"></span> MainHome
     </NavLink>
 </button>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous" />
+<style>
+
+
+    #track {
+        padding: 32px;
+        margin-left: 5%;
+        margin-right: 5%;
+        display: grid;
+        gap: 5px;
+        border-radius: 5px;
+        background-color: black;
+        opacity: 70%;
+        color: white;
+    }
+
+    #background-image {
+        background-image: url("bgImage3.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        padding: 10%;
+    }
+
+    #W_C_S {
+        display: flex;
+        gap: 5px;
+        justify-content: center;
+        margin-top: 5%;
+    }
+</style>
+
+<main>
+    <div id="background-image">
+        <div id="track">
+            <h2>Track Your Daily Activities</h2>
+            <p style="width: 50%">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed
+                do eiusmod
+            </p>
+        </div>
+        <div id="W_C_S">
+            <div style="
+            display: flex;
+            gap: 10px;
+            border-radius: 5px;
+            background-color: white;
+            padding: 5%;
+          ">
+                <svg width="45"
+                     height="45"
+                     viewBox="0 0 45 45"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="45" height="45" rx="4" fill="#0891B2" />
+                    <path d="M20.0933 23H25.9067M37 26.3333V19.6667M9 26.3333V19.6667M29.9067 31C33.1067 31 33.9067 29.2 33.9067 27V19C33.9067 16.8 33.1067 15 29.9067 15C26.7067 15 25.9067 16.8 25.9067 19V27C25.9067 29.2 26.7067 31 29.9067 31ZM16.0933 31C12.8933 31 12.0933 29.2 12.0933 27V19C12.0933 16.8 12.8933 15 16.0933 15C19.2933 15 20.0933 16.8 20.0933 19V27C20.0933 29.2 19.2933 31 16.0933 31Z"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                </svg>
+                <div style="display: grid; gap: 2px">
+                    <p style="font-weight: bold">Workout</p>
+                    <p>4hrs</p>
+                </div>
+            </div>
+            <div style="
+            display: flex;
+            gap: 10px;
+            border-radius: 5px;
+            background-color: white;
+            padding: 5%;
+          ">
+                <svg width="45"
+                     height="45"
+                     viewBox="0 0 45 45"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="45" height="45" rx="4" fill="#0891B2" />
+                    <path d="M20.0933 23H25.9067M37 26.3333V19.6667M9 26.3333V19.6667M29.9067 31C33.1067 31 33.9067 29.2 33.9067 27V19C33.9067 16.8 33.1067 15 29.9067 15C26.7067 15 25.9067 16.8 25.9067 19V27C25.9067 29.2 26.7067 31 29.9067 31ZM16.0933 31C12.8933 31 12.0933 29.2 12.0933 27V19C12.0933 16.8 12.8933 15 16.0933 15C19.2933 15 20.0933 16.8 20.0933 19V27C20.0933 29.2 19.2933 31 16.0933 31Z"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                </svg>
+                <div style="display: grid; gap: 2px">
+                    <p style="font-weight: bold">Workout</p>
+                    <p>4hrs</p>
+                </div>
+            </div>
+            <div style="
+            display: flex;
+            gap: 10px;
+            border-radius: 5px;
+            background-color: white;
+            padding: 5%;
+          ">
+                <svg width="45"
+                     height="45"
+                     viewBox="0 0 45 45"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg">
+                    <rect width="45" height="45" rx="4" fill="#0891B2" />
+                    <path d="M20.0933 23H25.9067M37 26.3333V19.6667M9 26.3333V19.6667M29.9067 31C33.1067 31 33.9067 29.2 33.9067 27V19C33.9067 16.8 33.1067 15 29.9067 15C26.7067 15 25.9067 16.8 25.9067 19V27C25.9067 29.2 26.7067 31 29.9067 31ZM16.0933 31C12.8933 31 12.0933 29.2 12.0933 27V19C12.0933 16.8 12.8933 15 16.0933 15C19.2933 15 20.0933 16.8 20.0933 19V27C20.0933 29.2 19.2933 31 16.0933 31Z"
+                          stroke="white"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                </svg>
+                <div style="display: grid; gap: 2px">
+                    <p style="font-weight: bold">Workout</p>
+                    <p>4hrs</p>
+                </div>
+            </div>
+        </div>
+        <section style="margin-top:8%;padding:2%">
+            <h1 style="color:white;text-align:center;margin-bottom:2%">Recommed Sessions</h1>
+
+            <div style="border: 1px; display: flex; justify-content: center; gap: 5%">
+                <div class="card" style="width: 24rem">
+                    <img src="fit1 (2).jpg"
+                         class="card-img-top"
+                         alt="..." />
+                    <div class="card-body">
+                        <button data-bs-toggle="modal"
+                                href="#exampleModalToggle"
+                                style="
+                width: 100%;
+                padding: 5%;
+                background-color: black;
+                color: white;
+              ">
+                            See  Workouts
+                        </button>
+                    </div>
+                </div>
+                <div class="card" style="width: 24rem">
+                    <img src="fit2 (2).jpg"
+                         class="card-img-top"
+                         alt="..." />
+                    <div class="card-body">
+                        <button data-bs-toggle="modal"
+                                href="#exampleModalToggle"
+                                style="
+                width: 100%;
+                padding: 5%;
+                background-color: black;
+                color: white;
+              ">
+                            See  Workouts
+                        </button>
+                    </div>
+                </div>
+                <div class="card" style="width: 24rem">
+                    <img src="fit3 (2).jpg"
+                         class="card-img-top"
+                         alt="..." />
+                    <div class="card-body">
+                        <button data-bs-toggle="modal"
+                                href="#exampleModalToggle"
+                                style="
+                width: 100%;
+                padding: 5%;
+                background-color: black;
+                color: white;
+              ">
+                            See  Workouts
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section style="margin-top:5%;padding:2%">
+            <h1 style="color:white;text-align:center;margin-bottom:2%">live Sessions</h1>
+            <div style="display:flex; gap:5%">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fWT-_jx41Jc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fWT-_jx41Jc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/fWT-_jx41Jc" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+        </section>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+</main>

@@ -1,22 +1,238 @@
-﻿@* @* @page "/workout"
-@using FitnessJournal.Application.Dto
-@*@inject IWorkoutService WorkoutService
+﻿@page "/Workout"
+<main style="
+        padding: 2%;
+        align-items: center;
+        justify-items: center;
+        width: 100vw;
+        height: 100vh;
+      ">
+    <h1>New Session</h1>
+    <section style="display: flex; justify-content: center; gap: 5%">
+        <div class="card" style="width: 24rem">
+            <img src="../Downloads/7 Best Ab Exercises That Can Help With Fat Loss By Summer, According To Trainers.jpeg"
+                 class="card-img-top"
+                 alt="..." />
+            <div class="card-body">
+                <button data-bs-toggle="modal"
+                        href="#exampleModalToggle"
+                        style="
+                width: 100%;
+                padding: 5%;
+                background-color: black;
+                color: white;
+              ">
+                    See Stomach Workouts
+                </button>
+            </div>
+        </div>
+        <div class="card" style="width: 24rem">
+            <img src="../Downloads/6 Plank Variations That Can Be Done On Repeat.jpeg"
+                 class="card-img-top"
+                 alt="..." />
+            <div class="card-body">
+                <button data-bs-toggle="modal"
+                        href="#exampleModalToggle"
+                        style="
+                width: 100%;
+                padding: 5%;
+                background-color: black;
+                color: white;
+              ">
+                    See Stomach Workouts
+                </button>
+            </div>
+        </div>
+        <div class="card" style="width: 24rem">
+            <img src="../Downloads/Exactly How to Do a Side Plank, According to a Pilates Instructor.jpeg"
+                 class="card-img-top"
+                 alt="..." />
+            <div class="card-body">
+                <button data-bs-toggle="modal"
+                        href="#exampleModalToggle"
+                        style="
+                width: 100%;
+                padding: 5%;
+                background-color: black;
+                color: white;
+              ">
+                    See Stomach Workouts
+                </button>
+            </div>
+        </div>
+    </section>
+    <h1>Recommended</h1>
+    <section style="border: 1px; display: flex; justify-content: center; gap: 5%">
+        <div class="card" style="width: 24rem">
+            <img src="../Downloads/7 Best Ab Exercises That Can Help With Fat Loss By Summer, According To Trainers.jpeg"
+                 class="card-img-top"
+                 alt="..." />
+            <div class="card-body">
+                <button data-bs-toggle="modal"
+                        href="#exampleModalToggle"
+                        style="
+                width: 100%;
+                padding: 5%;
+                background-color: black;
+                color: white;
+              ">
+                    See Stomach Workouts
+                </button>
+            </div>
+        </div>
+        <div class="card" style="width: 24rem">
+            <img src="../Downloads/6 Plank Variations That Can Be Done On Repeat.jpeg"
+                 class="card-img-top"
+                 alt="..." />
+            <div class="card-body">
+                <button data-bs-toggle="modal"
+                        href="#exampleModalToggle"
+                        style="
+                width: 100%;
+                padding: 5%;
+                background-color: black;
+                color: white;
+              ">
+                    See Stomach Workouts
+                </button>
+            </div>
+        </div>
+        <div class="card" style="width: 24rem">
+            <img src="../Downloads/Exactly How to Do a Side Plank, According to a Pilates Instructor.jpeg"
+                 class="card-img-top"
+                 alt="..." />
+            <div class="card-body">
+                <button data-bs-toggle="modal"
+                        href="#exampleModalToggle"
+                        style="
+                width: 100%;
+                padding: 5%;
+                background-color: black;
+                color: white;
+              ">
+                    See Stomach Workouts
+                </button>
+            </div>
+        </div>
+    </section>
+    <div class="modal fade"
+         id="exampleModalToggle"
+         aria-hidden="true"
+         aria-labelledby="exampleModalToggleLabel"
+         tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalToggleLabel">
+                        Get Started
+                    </h5>
+                    <button type="button"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"></button>
+                </div>
+                <div class="modal-body"
+                     style="gap: 15%; justify-content: center; text-align: center">
+                    <p id="timer" style="font-weight: bold; font-size: x-large">
+                        00:00:00
+                    </p>
+                    <img src="../Downloads/All the Latest News From Tone It Up!.gif"
+                         width="100%"
+                         height="100%" />
+                    <div style="
+                  display: flex;
+                  justify-content: center;
+                  gap: 5%;
+                  margin-top: 5%;
+                ">
+                        <button style="
+                    padding: 2%;
+                    border-radius: 5%;
+                    background-color: greenyellow;
+                    color: white;
+                  "
+                                id="start">
+                            Start
+                        </button>
+                        <button style="
+                    padding: 2%;
+                    border-radius: 5%;
+                    background-color: red;
+                    color: white;
+                  "
+                                id="stop">
+                            Stop
+                        </button>
+                        <button style="
+                    padding: 2%;
+                    border-radius: 5%;
+                    background-color: cornflowerblue;
+                    color: white;
+                  "
+                                id="reset">
+                            Reset
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 
-@rendermode InteractiveWebAssembly
+<script>
+    let startTime;
+    let updatedTime;
+    let difference;
+    let timerInterval;
+    let running = false;
 
-<PageTitle>Workout</PageTitle>
+    const timerDisplay = document.getElementById("timer");
+    const startButton = document.getElementById("start");
+    const stopButton = document.getElementById("stop");
+    const resetButton = document.getElementById("reset");
 
-<h3>Workout</h3>
-
-
-
-
-@*@code {
-    private IEnumerable<WorkoutDto> workouts;
-
-    protected override async Task OnInitializedAsync(){
-        workouts = await WorkoutService.GetWorkoutAsync();
+    function startTimer() {
+        if (!running) {
+            startTime = new Date().getTime() - (difference || 0);
+            timerInterval = setInterval(updateTimer, 1000);
+            running = true;
+        }
     }
 
-}*@
- 
+    function stopTimer() {
+        if (running) {
+            clearInterval(timerInterval);
+            running = false;
+        }
+    }
+
+    function resetTimer() {
+        clearInterval(timerInterval);
+        difference = 0;
+        running = false;
+        timerDisplay.textContent = "00:00:00";
+    }
+
+    function updateTimer() {
+        updatedTime = new Date().getTime();
+        difference = updatedTime - startTime;
+
+        const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+        const minutes = Math.floor((difference / (1000 * 60)) % 60);
+        const seconds = Math.floor((difference / 1000) % 60);
+
+        timerDisplay.textContent =
+            (hours < 10 ? "0" + hours : hours) +
+            ":" +
+            (minutes < 10 ? "0" + minutes : minutes) +
+            ":" +
+            (seconds < 10 ? "0" + seconds : seconds);
+    }
+
+    startButton.addEventListener("click", startTimer);
+    stopButton.addEventListener("click", stopTimer);
+    resetButton.addEventListener("click", resetTimer);
+</script>
