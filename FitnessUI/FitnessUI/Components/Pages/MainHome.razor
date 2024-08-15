@@ -1,0 +1,54 @@
+﻿@page "/mainHome"
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .background-image {
+            background-image: url("/mainHome.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #start {
+            background-color: rgba(71, 13, 112, 0.93);
+        }
+
+            #start:hover {
+                background-color: black;
+            }
+    </style>
+</head>
+<body>
+    <div class="background-image">
+        <div style="display:grid;justify-content:center;gap:10%">
+            <p style="color:white;font-weight: bold;font-size:5rem;text-align: center;padding-left:10%;padding-right:10%;margin:5%;">Transform your fitness journey with personalized workouts tailored to your goals.</p>
+      
+                <a href="../Components/Layout/NavMenu.razor" id="start" style="opacity:50%;;padding:2%;border-radius:10px;cursor: pointer;color:white;margin-top:5%;margin-right:30%;margin-left:30%;font-weight: bold;font-size:large;">
+                    Let's Get Started</a>
+          
+
+
+            
+        </div>
+    </div>
+</body>
+</html>
+
+
+@code {
+
+}

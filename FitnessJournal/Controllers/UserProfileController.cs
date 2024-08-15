@@ -1,4 +1,5 @@
 ﻿using FitnessJournal.Application.Command_Queries;
+using FitnessJournal.Application.Command_Queries.FitnessInfo;
 using FitnessJournal.Application.Command_Queries.userProfile;
 using FitnessJournal.Application.Dto;
 using MediatR;
@@ -52,6 +53,13 @@ namespace FitnessJournal.Controllers
         public async Task<IActionResult> GetAllProfiles()
         {
             var result = await _medator.Send(new ProfileCommandGetAll());
+            return Ok(result);
+        }
+        
+        [HttpGet("Id")]
+        public async Task<IActionResult> ViewUserProfiles([FromQuery] int id)
+        {
+            var result = await _medator.Send(new ViewUserProfileGetCommand { Id = id});
             return Ok(result);
         }
 

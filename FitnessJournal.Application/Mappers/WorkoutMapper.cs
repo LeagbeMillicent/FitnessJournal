@@ -15,7 +15,9 @@ namespace FitnessJournal.Application.Mappers
         { 
             CreateMap<AddWorkoutDto, Workout>().ReverseMap();
             CreateMap<UpdateWorkoutDto, Workout>().ReverseMap();
-            CreateMap<WorkoutDto, Workout>().ReverseMap();
-        }  
-    }
+            CreateMap<WorkoutDto, Workout>().ReverseMap()
+                            .ForMember(dest => dest.ImageBase64, opt => opt.MapFrom(src => src.Image != null ? Convert.ToBase64String(src.Image) : null));
+        }
+    }  
+    
 }
